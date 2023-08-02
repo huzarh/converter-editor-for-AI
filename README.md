@@ -1,7 +1,7 @@
 # Kararlı Difüzyon web kullanıcı arayüzü
 Stable Diffusion için Gradio kitaplığına dayalı bir tarayıcı arabirimi.
 
-![](ekran görüntüsü.png)
+![](screenshot.png)
 
 ## Özellikler
 [Resimlerle birlikte ayrıntılı özellik gösterimi](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features):
