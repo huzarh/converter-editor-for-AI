@@ -1,70 +1,73 @@
-# Stable Diffusion web UI
-A browser interface based on Gradio library for Stable Diffusion.
+# Kararlı Difüzyon web kullanıcı arayüzü
+Stable Diffusion için Gradio kitaplığına dayalı bir tarayıcı arabirimi.
 
-![](screenshot.png)
+![](ekran görüntüsü.png)
 
-## Features
-[Detailed feature showcase with images](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features):
-- Original txt2img and img2img modes
-- One click install and run script (but you still must install python and git)
-- Outpainting
-- Inpainting
-- Color Sketch
-- Prompt Matrix
-- Stable Diffusion Upscale
-- Attention, specify parts of text that the model should pay more attention to
-    - a man in a `((tuxedo))` - will pay more attention to tuxedo
-    - a man in a `(tuxedo:1.21)` - alternative syntax
-    - select text and press `Ctrl+Up` or `Ctrl+Down` (or `Command+Up` or `Command+Down` if you're on a MacOS) to automatically adjust attention to selected text (code contributed by anonymous user)
-- Loopback, run img2img processing multiple times
-- X/Y/Z plot, a way to draw a 3 dimensional plot of images with different parameters
-- Textual Inversion
-    - have as many embeddings as you want and use any names you like for them
-    - use multiple embeddings with different numbers of vectors per token
-    - works with half precision floating point numbers
-    - train embeddings on 8GB (also reports of 6GB working)
-- Extras tab with:
-    - GFPGAN, neural network that fixes faces
-    - CodeFormer, face restoration tool as an alternative to GFPGAN
-    - RealESRGAN, neural network upscaler
-    - ESRGAN, neural network upscaler with a lot of third party models
-    - SwinIR and Swin2SR ([see here](https://github.com/AUTOMATIC1111/stable-diffusion-webui/pull/2092)), neural network upscalers
-    - LDSR, Latent diffusion super resolution upscaling
-- Resizing aspect ratio options
-- Sampling method selection
-    - Adjust sampler eta values (noise multiplier)
-    - More advanced noise setting options
-- Interrupt processing at any time
-- 4GB video card support (also reports of 2GB working)
-- Correct seeds for batches
-- Live prompt token length validation
-- Generation parameters
-     - parameters you used to generate images are saved with that image
-     - in PNG chunks for PNG, in EXIF for JPEG
-     - can drag the image to PNG info tab to restore generation parameters and automatically copy them into UI
-     - can be disabled in settings
-     - drag and drop an image/text-parameters to promptbox
-- Read Generation Parameters Button, loads parameters in promptbox to UI
-- Settings page
-- Running arbitrary python code from UI (must run with `--allow-code` to enable)
-- Mouseover hints for most UI elements
-- Possible to change defaults/mix/max/step values for UI elements via text config
-- Tiling support, a checkbox to create images that can be tiled like textures
-- Progress bar and live image generation preview
-    - Can use a separate neural network to produce previews with almost none VRAM or compute requirement
-- Negative prompt, an extra text field that allows you to list what you don't want to see in generated image
-- Styles, a way to save part of prompt and easily apply them via dropdown later
-- Variations, a way to generate same image but with tiny differences
-- Seed resizing, a way to generate same image but at slightly different resolution
-- CLIP interrogator, a button that tries to guess prompt from an image
-- Prompt Editing, a way to change prompt mid-generation, say to start making a watermelon and switch to anime girl midway
-- Batch Processing, process a group of files using img2img
-- Img2img Alternative, reverse Euler method of cross attention control
-- Highres Fix, a convenience option to produce high resolution pictures in one click without usual distortions
-- Reloading checkpoints on the fly
-- Checkpoint Merger, a tab that allows you to merge up to 3 checkpoints into one
-- [Custom scripts](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Custom-Scripts) with many extensions from community
-- [Composable-Diffusion](https://energy-based-model.github.io/Compositional-Visual-Generation-with-Composable-Diffusion-Models/), a way to use multiple prompts at once
+## Özellikler
+[Resimlerle birlikte ayrıntılı özellik gösterimi](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features):
+- Orijinal txt2img ve img2img modları
+- Tek tıklamayla betiği kurun ve çalıştırın (ancak yine de python ve git'i yüklemelisiniz)
+- Dış boyama
+- boyama
+- Renkli Taslak
+- Bilgi İstemi Matrisi
+- Kararlı Difüzyon Yükseltmesi
+- Dikkat, modelin daha fazla dikkat etmesi gereken metin kısımlarını belirtin
+     - `((smokin)` giyen bir adam - smokine daha fazla dikkat eder
+     - `(smokin:1.21)` giyen bir adam - alternatif sözdizimi
+     - metni seçin ve dikkati seçilen metne (anonim kullanıcı tarafından sağlanan kod) otomatik olarak ayarlamak için "Ctrl+Yukarı" veya "Ctrl+Aşağı" (veya bir MacOS kullanıyorsanız "Command+Yukarı" veya "Command+Aşağı") tuşlarına basın )
+- Geri döngü, img2img işlemeyi birden çok kez çalıştırın
+- X/Y/Z çizimi, farklı parametrelerle 3 boyutlu bir resim çizimi çizmenin bir yolu
+- Metin Tersine Çevirme
+     - istediğiniz kadar yerleştirmeye sahip olun ve onlar için istediğiniz isimleri kullanın
+     - belirteç başına farklı sayıda vektör içeren birden fazla yerleştirme kullanın
+     - yarı duyarlıklı kayan noktalı sayılarla çalışır
+     - 8GB'ta tren yerleştirmeleri (ayrıca 6GB'ın çalıştığına dair raporlar)
+- Ekstralar sekmesi:
+     - GFPGAN, yüzleri düzelten sinir ağı
+     - CodeFormer, GFPGAN'a alternatif olarak yüz restorasyon aracı
+     - RealESRGAN, sinir ağı yükseltme
+     - ESRGAN, birçok üçüncü parti modele sahip sinir ağı yükseltme aracı
+     - SwinIR ve Swin2SR ([buraya bakın](https://github.com/AUTOMATIC1111/stable-diffusion-webui/pull/2092)), sinir ağı yükselticileri
+     - LDSR, Gizli difüzyon süper çözünürlük yükseltme
+- En boy oranı seçeneklerini yeniden boyutlandırma
+- Örnekleme yöntemi seçimi
+     - Örnekleyici eta değerlerini ayarlayın (gürültü çarpanı)
+     - Daha gelişmiş gürültü ayarı seçenekleri
+- Herhangi bir zamanda işlemeyi durdurun
+- 4GB ekran kartı desteği (ayrıca 2GB'lık çalışma raporları)
+- Partiler için doğru tohumlar
+- Canlı bilgi istemi belirteç uzunluğu doğrulaması
+- Üretim parametreleri
+      - görüntüleri oluşturmak için kullandığınız parametreler o görüntüyle birlikte kaydedilir
+      - PNG için PNG parçalarında, JPEG için EXIF'te
+      - oluşturma parametrelerini geri yüklemek ve bunları otomatik olarak kullanıcı arayüzüne kopyalamak için görüntüyü PNG bilgi sekmesine sürükleyebilir
+      - ayarlarda devre dışı bırakılabilir
+      - bir resim/metin parametrelerini sürükleyip bilgi istemi kutusuna bırakın
+- Oluşturma Parametrelerini Oku Düğmesi, istem kutusundaki parametreleri kullanıcı arayüzüne yükler
+- Ayarlar sayfası
+- Kullanıcı arabiriminden isteğe bağlı python kodu çalıştırma (etkinleştirmek için "--allow-code" ile çalıştırılmalıdır)
+- Çoğu UI öğesi için fareyle üzerine gelme ipuçları
+- UI öğeleri için varsayılanları/mix/maks/adım değerlerini metin yapılandırması aracılığıyla değiştirmek mümkündür
+- Döşeme desteği, dokular gibi döşenebilen görüntüler oluşturmak için bir onay kutusu
+- İlerleme çubuğu ve canlı görüntü oluşturma önizlemesi
+     - Neredeyse sıfır VRAM veya bilgi işlem gereksinimi olmadan önizlemeler oluşturmak için ayrı bir sinir ağı kullanabilir
+- Olumsuz bilgi istemi, oluşturulan resimde görmek istemediklerinizi listelemenizi sağlayan ekstra bir metin alanı
+- İstemin bir bölümünü kaydetmenin ve bunları daha sonra açılır menü aracılığıyla kolayca uygulamanın bir yolu olan stiller
+- Varyasyonlar, aynı görüntüyü küçük farklarla oluşturmanın bir yolu
+- Tohum yeniden boyutlandırma, aynı görüntüyü ancak biraz farklı çözünürlükte oluşturmanın bir yolu
+- CLIP sorgulayıcı, bir görüntüden istemi tahmin etmeye çalışan bir düğme
+- Komut İstemi Düzenleme, orta nesli değiştirmenin bir yolu, diyelim ki bir karpuz yapmaya başlayın ve yarıda anime kıza geçin
+- Toplu İşleme, img2img kullanarak bir grup dosyayı işleyin
+- Img2img Alternatif, çapraz dikkat kontrolünün ters Euler yöntemi
+- Yüksek Çözünürlük Düzeltme, her zamanki bozulmalar olmadan tek bir tıklamayla yüksek çözünürlüklü resimler üretmek için kullanışlı bir seçenek
+- Anında kontrol noktalarını yeniden yükleme
+- Kontrol Noktası Birleşmesi, 3 adede kadar kontrol noktasını tek bir kontrol noktasında birleştirmenize izin veren bir sekme
+- Topluluktan birçok uzantı içeren [Özel komut dosyaları](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Custom-Scripts)
+- [Composable-Diffusion](https://energy-based-model.github.io/Compositional-Visual-Generation-with-Composable-Diffusion-Models/), aynı anda birden fazla bilgi istemi kullanmanın bir yolu
+
+
+
      - separate prompts using uppercase `AND`
      - also supports weights for prompts: `a cat :1.2 AND a dog AND a penguin :2.2`
 - No token limit for prompts (original stable diffusion lets you use up to 75 tokens)
